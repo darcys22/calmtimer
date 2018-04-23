@@ -15,7 +15,8 @@ function start() {
     //var countDown = moment().add(5, 'seconds');
     window.x = setInterval(function() {
       var distance = countDown.diff(moment());
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60) + (60 * hours));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
 
